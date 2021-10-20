@@ -48,4 +48,14 @@ describe(' Testa a função getMagicCard', () => {
 
     expect(rarity).toBe('Uncommon');
   });
+
+  it("Testa se a propriedade name possui valor Ancestor's Chosen", async () => {
+    expect.assertions(1);
+
+    const getMagicCardSimulator = trybeSimulator(magic, 'getMagicCard');
+    const response = await getMagicCardSimulator('130550');
+    const { name } = response;
+
+    expect(name).toBe("Ancestor's Chosen");
+  });
 });
