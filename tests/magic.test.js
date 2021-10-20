@@ -28,4 +28,14 @@ describe(' Testa a função getMagicCard', () => {
 
     expect(Array.isArray(types)).toBe(true);
   });
+
+  it('Testa se a propriedade subtypes possui length === 2', async () => {
+    expect.assertions(1);
+
+    const getMagicCardSimulator = trybeSimulator(magic, 'getMagicCard');
+    const response = await getMagicCardSimulator('130550');
+    const { subtypes } = response;
+
+    expect(subtypes).toHaveLength(2);
+  });
 });
