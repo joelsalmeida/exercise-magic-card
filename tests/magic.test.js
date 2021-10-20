@@ -8,11 +8,9 @@ const retrievesFavoriteCards = () => {
 describe(' Testa a função getMagicCard', () => { 
 
   it('Testa se um novo card é adicionado a cada execução', async () => {
-    expect.assertions();
+    expect.assertions(1);
     await getMagicCard('130553');
-
-    // implemente seus testes aqui
-
+    expect(favoriteCards).toHaveLength(5)
   });
 
   it('Deve retornar favoriteCards contendo apenas os cards favoritos iniciais', () => {
