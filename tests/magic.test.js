@@ -58,4 +58,14 @@ describe(' Testa a função getMagicCard', () => {
 
     expect(name).toBe("Ancestor's Chosen");
   });
+
+  it('Testa se a propriedade manaCost possui valor {5}{W}{W}', async () => {
+    expect.assertions(1);
+
+    const getMagicCardSimulator = trybeSimulator(magic, 'getMagicCard');
+    const response = await getMagicCardSimulator('130550');
+    const { manaCost } = response;
+
+    expect(manaCost).toBe('{5}{W}{W}');
+  });
 });
