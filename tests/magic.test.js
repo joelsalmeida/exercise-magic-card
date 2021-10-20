@@ -38,4 +38,14 @@ describe(' Testa a função getMagicCard', () => {
 
     expect(subtypes).toHaveLength(2);
   });
+
+  it('Testa se a propriedade rarity possui valor Uncommon', async () => {
+    expect.assertions(1);
+
+    const getMagicCardSimulator = trybeSimulator(magic, 'getMagicCard');
+    const response = await getMagicCardSimulator('130550');
+    const { rarity } = response;
+
+    expect(rarity).toBe('Uncommon');
+  });
 });
