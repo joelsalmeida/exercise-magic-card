@@ -18,4 +18,14 @@ describe(' Testa a função getMagicCard', () => {
 
     expect(response).toEqual(expected);
   });
+
+  it('Testa se a propriedade types é do tipo Array', async () => {
+    expect.assertions(1);
+
+    const getMagicCardSimulator = trybeSimulator(magic, 'getMagicCard');
+    const response = await getMagicCardSimulator('130550');
+    const { types } = response;
+
+    expect(Array.isArray(types)).toBe(true);
+  });
 });
